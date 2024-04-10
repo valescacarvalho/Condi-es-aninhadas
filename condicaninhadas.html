@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições Aninhadas</title>
+</head>
+<style>
+    body {
+        background: cadetblue;
+    }
+</style>
+
+<body>
+    <h1>Voto</h1>
+    <input type="number" id="idade">
+    <button onclick="votar()">Digite sua Idade</button>
+    <div id="age">Idade para votar</div>
+
+    <h1>Velocidade do Carro</h1>
+    <input type="number" id="velocidade">
+    <button onclick="velocidade()">Calcular Velocidade</button>
+    <div id="vel">Velocidade Media</div>
+
+    <h1>Notas</h1>
+    Nota 1: <input type="number" id="n1">
+    Nota 2: <input type="number" id="n2">
+    Nota 3: <input type="number" id="n3">
+    Nota 4: <input type="number" id="n4">
+    <button onclick="mediaaluno()">Média do Aluno</button>
+    <div id="notas">Média Final:</div>
+
+    <script>
+        function votar() {
+            var idade = document.getElementById("idade");
+            var idades = document.getElementById("age");
+            var ageIdade = Number(idade.value);
+
+            if (ageIdade >= 18) {
+                idades.innerHTML = `Voto obrigatorio`;
+                idades.style.color = 'green';
+            } else if (ageIdade == 17) {
+                idades.innerHTML = `Opcional`;
+                idades.style.color = 'yellow';
+            } else if (ageIdade <= 16) {
+                idades.innerHTML = `Voce nao pode votar`;
+                idades.style.color = 'red'
+            }
+        }
+        function velocidade() {
+            var velocidade = document.getElementById("velocidade");
+            var vel = document.getElementById("vel");
+
+            var velo = Number(velocidade.value);
+
+            if (velo == 60) {
+                vel.innerHTML = `Prossiga ${velo} `;
+                vel.style.color = 'green';
+
+            } else if (velo == 80) {
+                vel.innerHTML = `Reduza a velocidade ${velo}`
+                vel.style.color = 'yellow';
+            } else if (velo >= 100) {
+                vel.innerHTML = `Você tomou uma multa por excesso de velocidade ${velo}`
+                vel.style.color = 'red';
+            }
+        }
+
+        function mediaaluno() {
+            var Nota1 = document.getElementById("n1");
+            var Nota2 = document.getElementById("n2");
+            var Nota3 = document.getElementById("n3");
+            var Nota4 = document.getElementById("n4");
+            var media = document.getElementById("notas");
+
+            var n1 = Number(Nota1.value);
+            var n2 = Number(Nota2.value);
+            var n3 = Number(Nota3.value);
+            var n4 = Number(Nota4.value);
+
+            var mediaaluno = (n1 + n2 + n3 + n4) / 4;
+
+            if (mediaaluno >= 7) {
+                media.innerHTML = `Voce está Aprovado com média ${mediaaluno}`;
+                media.style.color = 'green';
+            } else if (mediaaluno == 6) {
+                media.innerHTML = `Voce está em Recuperação com média ${mediaaluno}`;
+                media.style.color = 'yellow';
+            } else if (mediaaluno < 6) {
+                media.innerHTML = `Voce está Reprovado com média ${mediaaluno}`;
+                media.style.color = 'red'
+            }
+        }
+    </script>
+</body>
+
+</html>
